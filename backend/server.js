@@ -2,15 +2,19 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
 const fs = require('fs');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// CORS Configuration (Allow Vercel Frontend URL)
+app.use(cors({
+  origin: 'https://your-frontend.vercelpersonal-library-tracker-nfq0cpobi-suricha-sinhas-projects.vercel.app.app',  // Replace this with your actual Vercel frontend URL
+  credentials: true
+}));
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
@@ -42,4 +46,4 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .catch((err) => {
   console.error('MongoDB connection error:', err);
-}); 
+});
