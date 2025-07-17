@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // CORS Configuration (Allow Vercel Frontend URL)
 app.use(cors({
-  origin: 'https://personal-library-tracker-bjwqlngdv-suricha-sinhas-projects.vercel.app',  // Replace this with your actual Vercel frontend URL
+  origin: 'https://personal-library-tracker-pi.vercel.app',  // ✅ Your actual frontend URL
   credentials: true
 }));
 
